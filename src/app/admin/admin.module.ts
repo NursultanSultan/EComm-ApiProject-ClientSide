@@ -10,6 +10,9 @@ import { LayoutModule } from './layout/layout.module';
     CommonModule,
     LayoutModule
     
+  ],
+  exports: [
+    LayoutModule
   ]
 })
 export class AdminModule { }
