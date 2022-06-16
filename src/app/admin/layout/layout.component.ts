@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertifyService, MessageType } from 'src/app/services/admin/alertify.service';
+import { delay } from 'rxjs';
+import { AlertifyService, MessageType, Position } from 'src/app/services/admin/alertify.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.alertify.message("Welcome" , MessageType.Success)
+    this.alertify.message("Welcome" ,{messageType : MessageType.Error , position : Position.BottomRight , delay : 3})
   }
 
 }

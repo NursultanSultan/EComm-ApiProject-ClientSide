@@ -8,9 +8,18 @@ export class AlertifyService {
 
   constructor() { }
 
-  message(message : string, messageType:MessageType){
-    alertify[messageType](message)
+  message(message : string, options : Partial<AlertifyOptions>){
+    alertify.set('notifier','delay', options.delay);
+    alertify.set('notifier','position', options.position);
+    alertify[options.messageType](message)
   }
+}
+
+export class AlertifyOptions{
+  messageType : MessageType = MessageType.Success
+  position :Position = Position.BottomRight
+  delay : number = 3
+
 }
 
 export enum MessageType{
@@ -19,4 +28,13 @@ export enum MessageType{
   Notify = "notify",
   Message = "message",
   Warning = "warning"
+}
+
+export enum Position{
+  TopRigth = "top-right",
+  TopCenter = "top-center",
+  TopLeft = "top-left",
+  BottomRight = "bottom-right",
+  BottomCenter = "bottom-center",
+  BottomLeft = "bottom-left"
 }
