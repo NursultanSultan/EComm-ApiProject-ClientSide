@@ -14,7 +14,7 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.alertify.message("Welcome" ,{messageType : MessageType.Error , position : Position.BottomRight , delay : 3})
+    this.alertify.message("Welcome" ,{messageType : MessageType.Success , position : Position.BottomRight , delay : 3})
   }
 
 }

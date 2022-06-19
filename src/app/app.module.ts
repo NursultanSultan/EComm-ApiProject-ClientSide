@@ -18,7 +18,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UiModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide : "baseUrl" , useValue : "https://localhost:7127/api",multi : true 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

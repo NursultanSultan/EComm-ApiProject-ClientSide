@@ -11,3 +11,5 @@ declare var $:any
 export class AppComponent {
   title = 'ECommerseClient';
 }
+
+$.get("http://localhost:28414/api/Product")
