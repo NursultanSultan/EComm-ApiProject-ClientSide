@@ -11,8 +11,8 @@ export class ProductsComponent implements OnInit {
   constructor(private httpClientService : HttpClientService) { }
 
   ngOnInit(): void { 
-    // this.httpClientService.get({Controller : "products"}
-    // ).subscribe(data => console.log(data));
+    this.httpClientService.get({Controller : "products"} 
+    ).subscribe(data => console.log(data));
 
 
     // this.httpClientService.post(
@@ -36,17 +36,15 @@ export class ProductsComponent implements OnInit {
     // ).subscribe();
 
 
-    // this.httpClientService.delete(
-    //   {Controller : "products"},
-    //   ""
-    // ).subscribe();
+    this.httpClientService.delete(
+      {Controller : "products"},"8df91677-ab16-4ff9-823e-2c23b50b702a").subscribe();
 
 
-    this.httpClientService.get(
+    // this.httpClientService.get(
       
-      { baseUrl : "https://jsonplaceholder.typicode.com",
-        Controller : "posts"}
-    ).subscribe(data => console.log(data));
+    //   { baseUrl : "https://jsonplaceholder.typicode.com",
+    //     Controller : "posts"}
+    // ).subscribe(data => console.log(data));
 
   }
 

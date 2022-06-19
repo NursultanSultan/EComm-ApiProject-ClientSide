@@ -10,7 +10,7 @@ export class HttpClientService {
   constructor(private httpClient : HttpClient , @Inject("baseUrl") private baseUrl : string ) { }
 
   private Url(requestParametr : Partial<RequestParametr>) : string{
-    return `${requestParametr.baseUrl ? requestParametr.baseUrl : this.baseUrl}/${requestParametr.Controller} ${requestParametr.Action ? `/${requestParametr.Action}`: ""}` ;
+    return `${requestParametr.baseUrl ? requestParametr.baseUrl : this.baseUrl}/${requestParametr.Controller}${requestParametr.Action ? `/${requestParametr.Action}`: ""}` ;
   }
 
 
