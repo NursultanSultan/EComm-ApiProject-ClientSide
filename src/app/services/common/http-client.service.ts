@@ -10,8 +10,7 @@ export class HttpClientService {
   constructor(private httpClient : HttpClient , @Inject("baseUrl") private baseUrl : string ) { }
 
   private Url(requestParametr : Partial<RequestParametr>) : string{
-    return `${requestParametr.baseUrl ? requestParametr.baseUrl : this.baseUrl} /
-            ${requestParametr.Controller} ${requestParametr.Action ? `/${requestParametr.Action}`: ""}` ;
+    return `${requestParametr.baseUrl ? requestParametr.baseUrl : this.baseUrl}/${requestParametr.Controller} ${requestParametr.Action ? `/${requestParametr.Action}`: ""}` ;
   }
 
 
@@ -30,16 +29,47 @@ export class HttpClientService {
     
   }
 
-  post(){
+  post<T>(requestParametr : Partial<RequestParametr> , body : Partial<T>) : Observable<T>{
 
+    let url : string = "";
+
+    if(requestParametr.fullEndPoint){
+      url = requestParametr.fullEndPoint;
+    }
+    else{
+      url = `${this.Url(requestParametr)}`;
+    }
+
+    return this.httpClient.post<T>(url , body, {headers : requestParametr.headers});
+    
   }
 
-  Put(){
+  put<T>(requestParametr : Partial<RequestParametr> , body : Partial<T>) : Observable<T>{
 
+    let url : string = "";
+
+    if(requestParametr.fullEndPoint){
+      url = requestParametr.fullEndPoint;
+    }
+    else{
+      url = `${this.Url(requestParametr)}`;
+    }
+
+    return this.httpClient.put<T>(url , body, {headers : requestParametr.headers});
+    
   }
 
-  Delete(){
+  delete<T>(requestParametr : Partial<RequestParametr> , id : string) : Observable<T>{
+    let url : string = "";
 
+    if(requestParametr.fullEndPoint){
+      url = requestParametr.fullEndPoint;
+    }
+    else{
+      url = `${this.Url(requestParametr)}/${id}`;
+    }
+
+    return this.httpClient.delete<T>(url , {headers : requestParametr.headers});
   }
 
  
@@ -56,3 +86,7 @@ export class RequestParametr{
   fullEndPoint : string;
 
 }
+function body<T>(url: string, body: any, arg2: { Headers: HttpHeaders; }) {
+  throw new Error('Function not implemented.');
+}
+
