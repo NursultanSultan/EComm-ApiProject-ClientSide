@@ -36,8 +36,8 @@ export class ProductsComponent implements OnInit {
     // ).subscribe();
 
 
-    this.httpClientService.delete(
-      {Controller : "products"},"8df91677-ab16-4ff9-823e-2c23b50b702a").subscribe();
+    // this.httpClientService.delete(
+    //   {Controller : "products"},"8df91677-ab16-4ff9-823e-2c23b50b702a").subscribe();
 
 
     // this.httpClientService.get(
