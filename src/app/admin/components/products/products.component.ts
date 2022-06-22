@@ -11,8 +11,8 @@ export class ProductsComponent implements OnInit {
   constructor(private httpClientService : HttpClientService) { }
 
   ngOnInit(): void { 
-    this.httpClientService.get({Controller : "products"} 
-    ).subscribe(data => console.log(data));
+    // this.httpClientService.get({Controller : "products"} 
+    // ).subscribe(data => console.log(data));
 
 
     // this.httpClientService.post(

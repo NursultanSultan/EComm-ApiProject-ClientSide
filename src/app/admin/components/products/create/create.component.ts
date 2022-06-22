@@ -27,6 +27,11 @@ export class CreateComponent implements OnInit {
         messageType : MessageType.Success,
         position : Position.TopRigth
       });
+    } , errorMessage =>{
+      this.alertify.message(errorMessage , {
+        messageType : MessageType.Error,
+        position : Position.TopRigth
+      })
     });
     
   }
